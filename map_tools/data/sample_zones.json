@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "zones": [
+    {
+      "zone_id": "sidewalk_main",
+      "zone_type": "sidewalk",
+      "polygon": [[10, 5], [90, 5], [90, 15], [10, 15]],
+      "action_rules": {
+        "speed_modifier": 1.0,
+        "announce": false,
+        "announcement": "",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "Main Sidewalk"}
+    },
+    {
+      "zone_id": "grass_quad",
+      "zone_type": "grass",
+      "polygon": [[20, 20], [50, 20], [50, 50], [20, 50]],
+      "action_rules": {
+        "speed_modifier": 0.5,
+        "announce": true,
+        "announcement": "Grass area ahead — slowing down",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "Central Quad"}
+    },
+    {
+      "zone_id": "stairs_science",
+      "zone_type": "stairs",
+      "polygon": [[55, 35], [65, 35], [65, 40], [55, 40]],
+      "action_rules": {
+        "speed_modifier": 0.0,
+        "announce": true,
+        "announcement": "Stairs detected — press button to continue",
+        "requires_confirmation": true
+      },
+      "metadata": {"name": "Science Building Stairs"}
+    },
+    {
+      "zone_id": "crosswalk_north",
+      "zone_type": "crosswalk",
+      "polygon": [[40, 58], [50, 58], [50, 62], [40, 62]],
+      "action_rules": {
+        "speed_modifier": 0.7,
+        "announce": true,
+        "announcement": "Crosswalk ahead — checking for traffic",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "North Crosswalk"}
+    },
+    {
+      "zone_id": "road_north",
+      "zone_type": "road",
+      "polygon": [[5, 55], [95, 55], [95, 65], [5, 65]],
+      "action_rules": {
+        "speed_modifier": 0.0,
+        "announce": true,
+        "announcement": "Road detected — finding safe crossing",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "North Road"}
+    },
+    {
+      "zone_id": "entrance_library",
+      "zone_type": "entrance_zone",
+      "polygon": [[70, 68], [80, 68], [80, 75], [70, 75]],
+      "action_rules": {
+        "speed_modifier": 0.6,
+        "announce": true,
+        "announcement": "Library entrance ahead",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "Library"}
+    },
+    {
+      "zone_id": "sidewalk_north",
+      "zone_type": "sidewalk",
+      "polygon": [[10, 65], [90, 65], [90, 75], [10, 75]],
+      "action_rules": {
+        "speed_modifier": 1.0,
+        "announce": false,
+        "announcement": "",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "North Sidewalk"}
+    },
+    {
+      "zone_id": "entrance_science",
+      "zone_type": "entrance_zone",
+      "polygon": [[55, 28], [65, 28], [65, 35], [55, 35]],
+      "action_rules": {
+        "speed_modifier": 0.6,
+        "announce": true,
+        "announcement": "Science building entrance ahead",
+        "requires_confirmation": false
+      },
+      "metadata": {"name": "Science Building"}
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+# map_tools configuration
+# Ground Truth Map + Behavior Layer parameters
+
+map:
+  # Occupancy grid parameters
+  resolution: 0.05          # meters per cell
+  origin: [0.0, 0.0, 0.0]  # [x, y, yaw] of bottom-left corner in world frame
+  occupied_thresh: 0.65     # probability above this = occupied
+  free_thresh: 0.196        # probability below this = free
+
+  # Ground plane extraction
+  ground_z_min: -0.3        # meters, points below this are ground
+  ground_z_max: 0.1         # meters, points above this are obstacles
+  obstacle_z_max: 2.5       # meters, ignore points above this (trees, sky)
+
+  # Grid dimensions (for synthetic map generation)
+  width_m: 100.0            # meters
+  height_m: 80.0            # meters
+
+behavior_layer:
+  # Zone types and their default actions
+  zone_actions:
+    grass:
+      speed_modifier: 0.5   # 50% speed
+      announce: true
+      announcement: "Grass area ahead"
+    stairs:
+      speed_modifier: 0.0   # full stop
+      announce: true
+      announcement: "Stairs detected — press button to continue"
+      requires_confirmation: true
+    crosswalk:
+      speed_modifier: 0.7
+      announce: true
+      announcement: "Crosswalk ahead — checking for traffic"
+    entrance_zone:
+      speed_modifier: 0.6
+      announce: true
+      announcement: "Building entrance ahead"
+    sidewalk:
+      speed_modifier: 1.0
+      announce: false
+    road:
+      speed_modifier: 0.0   # do not enter
+      announce: true
+      announcement: "Road detected — finding safe crossing"
+
+astar:
+  # A* planner parameters
+  diagonal_movement: true
+  diagonal_cost: 1.414      # sqrt(2)
+  cardinal_cost: 1.0
+
+  # Ramer-Douglas-Peucker simplification
+  rdp_epsilon: 0.3          # meters, simplification tolerance
+
+  # Checkpoint generation
+  min_checkpoint_spacing: 2.0   # meters between checkpoints
+  max_checkpoint_spacing: 8.0   # meters
+  turn_angle_threshold: 30.0    # degrees, turns sharper than this become checkpoints
